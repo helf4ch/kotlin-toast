@@ -37,6 +37,7 @@ enum class ToastAnimations: IAnimation {
     TRANSLATE {
         override fun openAnimation(parent: Parent, config: ToastConfig) {
             val anim = TranslateTransition(Duration.millis(1500.0), parent)
+            parent.opacity = config.alpha
             anim.fromX = when(config.placement) {
                 ToastPlacements.LEFT_UP_CORNER -> -config.width
                 ToastPlacements.LEFT_DOWN_CORNER -> -config.width

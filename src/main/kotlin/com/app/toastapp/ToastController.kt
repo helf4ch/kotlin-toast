@@ -43,7 +43,7 @@ class ToastController {
     }
 
     fun setButtons(buttons: HBox, config: ToastConfig) {
-        if (config.buttonsType == ToastButtons.NONE) {
+        if (config.widgetType == ToastWidget.NONE) {
             return
         }
         buttons.padding = Insets(

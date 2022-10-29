@@ -81,7 +81,7 @@ class Toast {
         }
 
         fun setMessage(str: String): Builder {
-            config.message = str;
+            config.message = str
             return this
         }
 
@@ -96,7 +96,7 @@ class Toast {
         }
 
         fun build(): Toast {
-            var toast = Toast()
+            val toast = Toast()
             toast.config = config
             toast.build()
             return toast
@@ -104,7 +104,7 @@ class Toast {
     }
 
     private fun build() {
-        var scene = Scene(parent)
+        val scene = Scene(parent)
         scene.stylesheets.add(config.css)
         toastWindow.setScene(scene)
 
@@ -113,13 +113,13 @@ class Toast {
         controller.setUp(config)
         controller.setImage(config.imageType.getImage(config))
         textSection.setUp(config.title, config.message, config.appName, controller, config)
-        controller.setButtons(config.buttons.getButtons(toastWindow.getStage(), config), config)
+        controller.setButtons(config.widget.getWidget(toastWindow.getStage(), config), config)
     }
 
     fun start() {
         toastWindow.show(config)
         sound.play()
-        config.animationType.openAnimation(parent, config);
+        config.animationType.openAnimation(parent, config)
         val thread = Thread {
             try {
                 Thread.sleep(config.openTime.toLong())

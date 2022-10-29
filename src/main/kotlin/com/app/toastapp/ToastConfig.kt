@@ -10,17 +10,17 @@ import javafx.scene.layout.Priority
 import javafx.scene.text.TextAlignment
 import javafx.stage.Stage
 
-class MyButtons: IButtons {
-    override fun getButtons(stage: Stage, config: ToastConfig): HBox {
-        var hbox = HBox()
-        var but1 = Button("left")
-        var but2 = Button("right")
+class MyWidget: IWidget {
+    override fun getWidget(stage: Stage, config: ToastConfig): HBox {
+        val hbox = HBox()
+        val but1 = Button("left")
+        val but2 = Button("right")
         but1.onAction = EventHandler {
             stage.close()
         }
         but2.onAction = EventHandler {
-            var clipboard = Clipboard.getSystemClipboard()
-            var content = ClipboardContent()
+            val clipboard = Clipboard.getSystemClipboard()
+            val content = ClipboardContent()
             content.putString(config.message)
             clipboard.setContent(content)
         }
@@ -58,8 +58,8 @@ class ToastConfig {
 
     var pathToSound = "/other/aughh.mp3"
 
-    var buttonsType = ToastButtons.NONE
-    var buttons: IButtons = MyButtons()
+    var widgetType = ToastWidget.NOT_EMPTY
+    var widget: IWidget = MyWidget()
 
     var contentPaddingTop = 5.0
     var contentPaddingBottom = 5.0
