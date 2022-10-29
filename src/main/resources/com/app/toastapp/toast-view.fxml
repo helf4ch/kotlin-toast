@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="mainVBox"
+      alignment="CENTER"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.app.toastapp.ToastController"
+      maxHeight="-Infinity">
+    <children>
+        <HBox fx:id="contentHBox"
+              alignment="CENTER"
+              VBox.vgrow="ALWAYS">
+            <children>
+                <BorderPane fx:id="imageBox"
+                            HBox.hgrow="ALWAYS"/>
+            </children>
+            <children>
+                <VBox fx:id="textVBox"
+                      HBox.hgrow="ALWAYS"
+                      VBox.vgrow="ALWAYS"
+                      alignment="CENTER">
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</VBox>
